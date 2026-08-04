@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const COLORS = ['#20c997', '#ffd43b', '#ff8787', '#74c0fc', '#b197fc', '#ffffff'];
+const COLORS = ['#20c997', '#ffd43b', '#ff8787', '#74c0fc', '#ffa1ff', '#b197fc'];
 
 export default function NoteForm({ onCreate }) {
   const [title, setTitle] = useState('');
@@ -33,7 +33,7 @@ export default function NoteForm({ onCreate }) {
       </div>
       <div className="field">
         <textarea
-          placeholder="Write a note..."
+          placeholder="Write a note"
           value={content}
           onChange={(e) => setContent(e.target.value)}
         />

@@ -6,7 +6,7 @@ export default function Navbar() {
 
   return (
     <header className="navbar">
-      <h1> Sticky Notes</h1>
+      <h1> StickyNotes</h1>
       {user && (
         <div className="nav-actions">
           <span>Welcome {user.name}</span>
