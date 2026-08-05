@@ -416,7 +416,7 @@ a:hover {
 
 @media (max-width: 360px) {
   .navbar h1 {
-    font-size: 1.1rem;
+    font-size: 0.5rem;
   }
 
   .auth-card h2 {
