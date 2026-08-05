@@ -28,6 +28,11 @@ export default function Board() {
     setNotes((prev) => prev.map((n) => (n._id === id ? res.data.note : n)));
   };
 
+  const sortedNotes = [...notes].sort((a, b) => {
+    if (a.pinned === b.pinned) return 0;
+    return a.pinned ? -1 : 1;
+  });
+
   const deleteNote = async (id) => {
     await api.delete(`/notes/${id}`);
     setNotes((prev) => prev.filter((n) => n._id !== id));
@@ -43,8 +48,13 @@ export default function Board() {
         <div className="empty-state">No notes yet — add your first one above</div>
       ) : (
         <div className="notes-grid">
-          {notes.map((note) => (
-            <NoteCard key={note._id} note={note} onUpdate={updateNote} onDelete={deleteNote} />
+          {sortedNotes.map(note => (
+            <NoteCard
+              key={note._id}
+              note={note}
+              onUpdate={updateNote}
+              onDelete={deleteNote}
+            />
           ))}
         </div>
       )}
